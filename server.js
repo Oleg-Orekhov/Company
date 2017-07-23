@@ -19,7 +19,7 @@ app.use('/script', express.static(__dirname + '/node_modules'));
 
 app.get('*', function (request, response){
     //response.sendFile(path.resolve(__dirname, '/src', 'index.html'));
-    response.send("hello");
+    response.send(path.resolve(__dirname));
 });
 
 app.get('/api/company', function(req,res){
