@@ -30,8 +30,6 @@ app.post('/api/company', function(req,res){
     var company = new Company(req.body);
     
     company.save(function(err,result){
-        //allEarningsCount();
-        //res.status(200).send({success: "success"});
         allEarningsCountPromise(res).then(res => setTimeout(function(){getAllCompanies(res)},3000));
     });
 });
@@ -43,8 +41,6 @@ app.delete('/api/company', function(req,res){
             //console.log("errr",err);
             //return done(err, null);
         }
-        //allEarningsCount();
-        //res.status(200).send({success: "success"});
         allEarningsCountPromise(res).then(res => setTimeout(function(){getAllCompanies(res)},3000));
     });
 });
@@ -55,9 +51,7 @@ app.put('/api/company', function(req,res){
         item.name = req.body.name;
         item.earnings = req.body.earnings;
         item.save(function (err, result) {
-            //allEarningsCount();
             allEarningsCountPromise(res).then(res => setTimeout(function(){getAllCompanies(res)},3000));
-            //res.status(200).send({success: "success"});
         }); 
     });
     
@@ -166,7 +160,7 @@ var getAllCompanies = function (res){
     });
 };
 
-mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost:27017/test", function (err, db) {
+mongoose.connect("mongodb://heroku_v03qv9wn:jrc261sht3h0phs14ri566igtr@ds119223.mlab.com:19223/heroku_v03qv9wn", function (err, db) {
     if (!err) {
         console.log("we are connected to mongo");
     }
