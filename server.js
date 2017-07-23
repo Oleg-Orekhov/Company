@@ -163,6 +163,6 @@ mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost:27017/test", f
     }
 })
 
-var server = app.listen(5000, function () {
+var server = app.listen(process.env.PORT || 5000, function () {
     console.log('listening on port ', server.address().port);
 })
