@@ -157,7 +157,7 @@ var getAllCompanies = function (res){
     });
 };
 
-mongoose.connect("mongodb://localhost:27017/test", function (err, db) {
+mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost:27017/test", function (err, db) {
     if (!err) {
         console.log("we are connected to mongo");
     }
