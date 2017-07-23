@@ -160,7 +160,7 @@ var getAllCompanies = function (res){
     });
 };
 
-mongoose.connect("mongodb://heroku_v03qv9wn:jrc261sht3h0phs14ri566igtr@ds119223.mlab.com:19223/heroku_v03qv9wn", function (err, db) {
+mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost:27017/test", function (err, db) {
     if (!err) {
         console.log("we are connected to mongo");
     }
