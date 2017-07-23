@@ -17,9 +17,8 @@ app.use(function(req,res,next){
 app.use('/res', express.static(__dirname + '/src'));
 app.use('/script', express.static(__dirname + '/node_modules'));
 
-app.get('/', function(req,res){
-    console.log("request");
-    res.sendFile(path.join(__dirname+'/src/index.html'));
+app.get('*', function (request, response){
+    response.sendFile(path.resolve(__dirname, '/res', 'index.html'));
 });
 
 app.get('/api/company', function(req,res){
