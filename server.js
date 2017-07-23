@@ -18,7 +18,7 @@ app.use('/res', express.static(__dirname + '/src'));
 app.use('/script', express.static(__dirname + '/node_modules'));
 
 app.get('*', function (request, response){
-    response.sendFile(process.env.PWD, 'src', 'index.html'));
+    response.sendFile(process.env.PWD, '/src/index.html'));
     //response.send(process.env.PWD);
 });
 
