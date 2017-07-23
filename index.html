@@ -1,0 +1,51 @@
+<html ng-app="myApp">
+  <head>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+    
+  <body>
+    <h2>Test Task</h2>
+    <div ng-controller="MainController">
+      <h3>Companies Tree &nbsp;<span class='glyphicon glyphicon-plus' aria-hidden='true' ng-click='modalAddShow(undefined)'></span> </h3>
+      
+      <div id='companiesTree'> 
+ 
+      </div> 
+        
+      <!-- The Modal -->
+      <div id="myModal" class="modal" style="z-index: 10;">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="company-input">Company Input</span>
+          <span class="close" ng-click='modalClose()'>&times;</span>
+          <div class="input-group">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="input-group">
+                  <input type="text" class="form-control modal-name-input" placeholder="Name for company" ng-model="modalName">
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="input-group">
+                  <input type="text" class="form-control modal-earnings-input" placeholder="Annual earnings" ng-model="modalEarnings">
+                </div>
+              </div>   
+            </div>
+          </div>  
+          <div>
+          <button class="form-control custom-control btn btn-primary" ng-click='sendCompany()'>Update</button>
+            </div>
+        </div>
+      </div>  
+    </div>
+      
+      
+      
+    
+
+  </body>
+</html>
