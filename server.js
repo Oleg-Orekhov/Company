@@ -3,6 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Company = require('./models/Company');
+var path  = require("path");
 var mongodb;
 app.use(bodyParser.json());
 
@@ -12,6 +13,14 @@ app.use(function(req,res,next){
     res.header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE, PUT");
     next();
 })
+
+app.use('/res', express.static(__dirname + '/src'));
+app.use('/script', express.static(__dirname + '/node_modules'));
+
+app.get('/', function(req,res){
+    console.log("request");
+    res.sendFile(path.join(__dirname+'/src/index.html'));
+});
 
 app.get('/api/company', function(req,res){
     getAllCompanies(res);
